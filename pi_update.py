@@ -97,11 +97,12 @@ def get_empty_commodity_chart(target_date):
     fig.add_trace(go.Scatter(x=[], y=[], name='TTF Gas (€/MWh)'), secondary_y=True)
     fig.update_layout(
         title={'text': f'Brent & TTF Gas Prices ({target_date.strftime("%d %b %Y")} - Awaiting Data)', 'x': 0.5, 'xanchor': 'center'},
-        xaxis=dict(title='Time of Day', type='date', range=[start_range, end_range], tickformat='%H:%M', gridcolor='rgba(255, 255, 255, 0.1)'),
+        xaxis=dict(showticklabels=False, type='date', range=[start_range, end_range], gridcolor='rgba(255, 255, 255, 0.1)'),
         yaxis=dict(title=dict(text='Brent Crude (USD/Bbl)', font=dict(color='deepskyblue')), tickfont=dict(color='deepskyblue'), gridcolor='rgba(255, 255, 255, 0.1)'),
         yaxis2=dict(title=dict(text='TTF Gas (EUR/MWh)', font=dict(color='darkviolet')), tickfont=dict(color='darkviolet')),
         paper_bgcolor='white', plot_bgcolor='#E5ECF6', font=dict(size=24), autosize=True,
-        margin=dict(l=80, r=80, t=60, b=95)
+        margin=dict(l=80, r=80, t=60, b=30),
+        legend=dict(x=0.5, y=0.98, xanchor='center', yanchor='top', orientation='h')
     )
     return fig
 
@@ -159,12 +160,12 @@ def generate_commodity_chart():
 
     fig.update_layout(
         title={'text': f'Brent Crude & TTF Gas Prices ({target_date.strftime("%d %b %Y")})', 'x': 0.5, 'xanchor': 'center'},
-        xaxis=dict(title='Time of Day', type='date', range=[start_range, end_range], tickformat='%H:%M', showgrid=True, gridcolor='white', dtick=3600000 * 2),
+        xaxis=dict(showticklabels=False, type='date', range=[start_range, end_range], showgrid=True, gridcolor='white', dtick=3600000 * 2),
         yaxis=dict(title=dict(text='Brent Crude (USD/Bbl)', font=dict(color='deepskyblue')), tickfont=dict(color='deepskyblue'), showgrid=True, gridcolor='white', zeroline=False, range=brent_range),
         yaxis2=dict(title=dict(text='TTF Gas (EUR/MWh)', font=dict(color='darkviolet')), tickfont=dict(color='darkviolet'), showgrid=False, zeroline=False, range=ttf_range),
-        legend=dict(x=0.01, y=0.98, bgcolor='rgba(255, 255, 255, 0.8)', bordercolor='lightgray', borderwidth=1, font=dict(size=16)),
+        legend=dict(x=0.5, y=0.98, xanchor='center', yanchor='top', orientation='h', bgcolor='rgba(255, 255, 255, 0.8)', bordercolor='lightgray', borderwidth=1, font=dict(size=16)),
         paper_bgcolor='white', plot_bgcolor='#E5ECF6', font=dict(size=24), autosize=True,
-        margin=dict(l=80, r=80, t=60, b=95)
+        margin=dict(l=80, r=80, t=60, b=30)
     )
     return fig
 
