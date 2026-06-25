@@ -101,7 +101,7 @@ def get_empty_commodity_chart(target_date):
         yaxis=dict(title=dict(text='Brent Crude (USD/Bbl)', font=dict(color='deepskyblue')), tickfont=dict(color='deepskyblue'), gridcolor='rgba(255, 255, 255, 0.1)'),
         yaxis2=dict(title=dict(text='TTF Gas (EUR/MWh)', font=dict(color='darkviolet')), tickfont=dict(color='darkviolet')),
         paper_bgcolor='white', plot_bgcolor='#E5ECF6', font=dict(size=24), autosize=True,
-        margin=dict(l=80, r=80, t=60, b=50)
+        margin=dict(l=80, r=80, t=60, b=95)
     )
     return fig
 
@@ -164,7 +164,7 @@ def generate_commodity_chart():
         yaxis2=dict(title=dict(text='TTF Gas (EUR/MWh)', font=dict(color='darkviolet')), tickfont=dict(color='darkviolet'), showgrid=False, zeroline=False, range=ttf_range),
         legend=dict(x=0.01, y=0.98, bgcolor='rgba(255, 255, 255, 0.8)', bordercolor='lightgray', borderwidth=1, font=dict(size=16)),
         paper_bgcolor='white', plot_bgcolor='#E5ECF6', font=dict(size=24), autosize=True,
-        margin=dict(l=80, r=80, t=60, b=50)
+        margin=dict(l=80, r=80, t=60, b=95)
     )
     return fig
 

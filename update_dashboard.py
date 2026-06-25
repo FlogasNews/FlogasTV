@@ -130,7 +130,7 @@ def get_empty_commodity_chart(target_date):
         plot_bgcolor='#E5ECF6',
         font=dict(size=24),
         autosize=True,
-        margin=dict(l=80, r=80, t=60, b=50)
+        margin=dict(l=80, r=80, t=60, b=95)
     )
     return fig
 
@@ -257,7 +257,7 @@ def generate_commodity_chart():
         plot_bgcolor='#E5ECF6',
         font=dict(size=24),
         autosize=True,
-        margin=dict(l=80, r=80, t=60, b=50)
+        margin=dict(l=80, r=80, t=60, b=95)
     )
     
     return fig
@@ -286,16 +286,16 @@ def fetch_nbp_daily(current_date):
     selected_dates = [formatted_dates[i] for i in indices]
     
     fig1 = make_subplots(rows=2, cols=1, shared_xaxes=False, vertical_spacing=0.1, row_heights=[0.99, 0.01])
-    fig1.add_trace(go.Scatter(x=formatted_dates, y=values, mode='lines+markers', marker=dict(color='deepskyblue'), name='Summer 26'), row=1, col=1)
-    fig1.add_trace(go.Scatter(x=formatted_dates, y=values2, mode='lines+markers', marker=dict(color='darkviolet'), name='Winter 26'), row=1, col=1)
+    fig1.add_trace(go.Scatter(x=formatted_dates, y=values, mode='lines+markers', marker=dict(color='deepskyblue'), name='Winter 26'), row=1, col=1)
+    fig1.add_trace(go.Scatter(x=formatted_dates, y=values2, mode='lines+markers', marker=dict(color='darkviolet'), name='Summer 27'), row=1, col=1)
     
     fig1.update_layout(
-        title={'text': 'Summer and Winter 26 Daily NBP Prices 12 Month Lag', 'x': 0.5, 'xanchor': 'center'},
+        title={'text': 'Winter 26 and Summer 27 Daily NBP Prices 12 Month Lag', 'x': 0.5, 'xanchor': 'center'},
         legend=dict(x=0.01, y=0.98, bgcolor='rgba(255, 255, 255, 0.8)', bordercolor='lightgray', borderwidth=1),
         yaxis_title='p/therm',
         xaxis=dict(tickmode='array', tickvals=[formatted_dates[i] for i in indices], ticktext=selected_dates),
         font=dict(size=24), 
-        autosize=True, margin=dict(l=50, r=30, t=60, b=50)
+        autosize=True, margin=dict(l=50, r=30, t=60, b=95)
     )
     return fig1.to_html(full_html=False, include_plotlyjs='cdn')
 
@@ -341,7 +341,7 @@ def fetch_nbp_forward_wow(current_date):
         xaxis_title='Month', yaxis_title='P/th',
         legend=dict(x=0.01, y=0.98, bgcolor='rgba(255, 255, 255, 0.8)', bordercolor='lightgray', borderwidth=1),
         hovermode='x unified',
-        font=dict(size=24), autosize=True, margin=dict(l=50, r=30, t=60, b=50)
+        font=dict(size=24), autosize=True, margin=dict(l=50, r=30, t=60, b=95)
     )
     return fig2.to_html(full_html=False, include_plotlyjs=False)
 
@@ -400,7 +400,7 @@ def fetch_diesel_forward_wow(current_date):
         xaxis_title='Month', yaxis_title='USD ($) /MT',
         legend=dict(x=0.01, y=0.98, bgcolor='rgba(255, 255, 255, 0.8)', bordercolor='lightgray', borderwidth=1),
         hovermode='x unified',
-        font=dict(size=24), autosize=True, margin=dict(l=50, r=30, t=60, b=50)
+        font=dict(size=24), autosize=True, margin=dict(l=50, r=30, t=60, b=95)
     )
     return fig3.to_html(full_html=False, include_plotlyjs=False)
 
