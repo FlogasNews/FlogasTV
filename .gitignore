@@ -1,5 +1,4 @@
 .ipynb_checkpoints/
-dashboard_cache.json
 __pycache__/
 *.pyc
 *.log

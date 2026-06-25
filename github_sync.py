@@ -17,6 +17,7 @@ def push_to_github(workspace_dir=None):
             
         # Files we want to update and sync
         files_to_sync = [
+            'dashboard_cache.json',
             'index.html', 
             'commodity_prices.csv', 
             'nbp_spot_prices_30m.csv', 
