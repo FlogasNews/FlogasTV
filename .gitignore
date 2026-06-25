@@ -15,3 +15,5 @@ parse_portal.py
 test_endpoints.py
 test_fetch_sap.py
 index.js
+index.html
+commodity_prices.csv
