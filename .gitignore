@@ -1,0 +1,17 @@
+.ipynb_checkpoints/
+dashboard_cache.json
+__pycache__/
+*.pyc
+*.log
+portal_page.html
+test_sap.csv
+search_everywhere.json
+find_gas_data_folders.json
+detailed_sap_search.py
+fetch_html.py
+fetch_js.py
+find_sap.py
+parse_portal.py
+test_endpoints.py
+test_fetch_sap.py
+index.js
