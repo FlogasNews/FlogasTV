@@ -13,6 +13,7 @@ import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from jinja2 import Environment, FileSystemLoader
+import github_sync
 
 # Try importing proprietary Flogas and news APIs
 try:
@@ -512,6 +513,10 @@ def update_dashboard(force_slow_refresh=False):
         with open(output_file_path, 'w', encoding='utf-8') as f:
             f.write(html_content)
         print(f"Success! Dashboard {OUTPUT_NAME} generated at {output_file_path}")
+        
+        # Sync changes to GitHub
+        github_sync.push_to_github(WORKSPACE_DIR)
+        
     except Exception as e:
         print(f"Critical error rendering index.html: {e}")
         
