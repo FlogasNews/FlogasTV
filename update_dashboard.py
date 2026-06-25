@@ -123,14 +123,15 @@ def get_empty_commodity_chart(target_date):
     
     fig.update_layout(
         title={'text': f'Brent & TTF Gas Prices ({target_date.strftime("%d %b %Y")} - Awaiting Data)', 'x': 0.5, 'xanchor': 'center'},
-        xaxis=dict(title='Time of Day', type='date', range=[start_range, end_range], tickformat='%H:%M', gridcolor='rgba(255, 255, 255, 0.1)'),
+        xaxis=dict(showticklabels=True, title=None, tickfont=dict(size=14), type='date', range=[start_range, end_range], tickformat='%H:%M', gridcolor='rgba(255, 255, 255, 0.1)'),
         yaxis=dict(title=dict(text='Brent Crude (USD/Bbl)', font=dict(color='deepskyblue')), tickfont=dict(color='deepskyblue'), gridcolor='rgba(255, 255, 255, 0.1)'),
         yaxis2=dict(title=dict(text='TTF Gas (EUR/MWh)', font=dict(color='darkviolet')), tickfont=dict(color='darkviolet')),
         paper_bgcolor='white',
         plot_bgcolor='#E5ECF6',
         font=dict(size=24),
         autosize=True,
-        margin=dict(l=80, r=80, t=60, b=95)
+        margin=dict(l=80, r=80, t=60, b=55),
+        legend=dict(x=0.5, y=0.98, xanchor='center', yanchor='top', orientation='h', bgcolor='rgba(255, 255, 255, 0.8)', bordercolor='lightgray', borderwidth=1)
     )
     return fig
 
@@ -216,7 +217,9 @@ def generate_commodity_chart():
             'xanchor': 'center'
         },
         xaxis=dict(
-            title='Time of Day',
+            showticklabels=True,
+            title=None,
+            tickfont=dict(size=14),
             type='date',
             range=[start_range, end_range],
             tickformat='%H:%M',
@@ -246,8 +249,11 @@ def generate_commodity_chart():
             range=ttf_range
         ),
         legend=dict(
-            x=0.01,
+            x=0.5,
             y=0.98,
+            xanchor='center',
+            yanchor='top',
+            orientation='h',
             bgcolor='rgba(255, 255, 255, 0.8)',
             bordercolor='lightgray',
             borderwidth=1,
@@ -257,7 +263,7 @@ def generate_commodity_chart():
         plot_bgcolor='#E5ECF6',
         font=dict(size=24),
         autosize=True,
-        margin=dict(l=80, r=80, t=60, b=95)
+        margin=dict(l=80, r=80, t=60, b=55)
     )
     
     return fig
@@ -291,11 +297,11 @@ def fetch_nbp_daily(current_date):
     
     fig1.update_layout(
         title={'text': 'Winter 26 and Summer 27 Daily NBP Prices 12 Month Lag', 'x': 0.5, 'xanchor': 'center'},
-        legend=dict(x=0.01, y=0.98, bgcolor='rgba(255, 255, 255, 0.8)', bordercolor='lightgray', borderwidth=1),
+        legend=dict(x=0.5, y=0.98, xanchor='center', yanchor='top', orientation='h', bgcolor='rgba(255, 255, 255, 0.8)', bordercolor='lightgray', borderwidth=1),
         yaxis_title='p/therm',
-        xaxis=dict(tickmode='array', tickvals=[formatted_dates[i] for i in indices], ticktext=selected_dates),
+        xaxis=dict(showticklabels=True, title=None, tickfont=dict(size=14), tickmode='array', tickvals=[formatted_dates[i] for i in indices], ticktext=selected_dates),
         font=dict(size=24), 
-        autosize=True, margin=dict(l=50, r=30, t=60, b=95)
+        autosize=True, margin=dict(l=50, r=30, t=60, b=55)
     )
     return fig1.to_html(full_html=False, include_plotlyjs='cdn')
 
@@ -338,10 +344,11 @@ def fetch_nbp_forward_wow(current_date):
     
     fig2.update_layout(
         title={'text': 'Forward NBP Curve Change Week on Week', 'x': 0.5, 'xanchor': 'center'},
-        xaxis_title='Month', yaxis_title='P/th',
-        legend=dict(x=0.01, y=0.98, bgcolor='rgba(255, 255, 255, 0.8)', bordercolor='lightgray', borderwidth=1),
+        yaxis_title='P/th',
+        xaxis=dict(showticklabels=True, title=None, tickfont=dict(size=14)),
+        legend=dict(x=0.5, y=0.98, xanchor='center', yanchor='top', orientation='h', bgcolor='rgba(255, 255, 255, 0.8)', bordercolor='lightgray', borderwidth=1),
         hovermode='x unified',
-        font=dict(size=24), autosize=True, margin=dict(l=50, r=30, t=60, b=95)
+        font=dict(size=24), autosize=True, margin=dict(l=50, r=30, t=60, b=55)
     )
     return fig2.to_html(full_html=False, include_plotlyjs=False)
 
@@ -397,10 +404,11 @@ def fetch_diesel_forward_wow(current_date):
     
     fig3.update_layout(
         title={'text': 'Forward Diesel/Heating Oil Curve Change Week on Week', 'x': 0.5, 'xanchor': 'center'},
-        xaxis_title='Month', yaxis_title='USD ($) /MT',
-        legend=dict(x=0.01, y=0.98, bgcolor='rgba(255, 255, 255, 0.8)', bordercolor='lightgray', borderwidth=1),
+        yaxis_title='USD ($) /MT',
+        xaxis=dict(showticklabels=True, title=None, tickfont=dict(size=14)),
+        legend=dict(x=0.5, y=0.98, xanchor='center', yanchor='top', orientation='h', bgcolor='rgba(255, 255, 255, 0.8)', bordercolor='lightgray', borderwidth=1),
         hovermode='x unified',
-        font=dict(size=24), autosize=True, margin=dict(l=50, r=30, t=60, b=95)
+        font=dict(size=24), autosize=True, margin=dict(l=50, r=30, t=60, b=55)
     )
     return fig3.to_html(full_html=False, include_plotlyjs=False)
 
